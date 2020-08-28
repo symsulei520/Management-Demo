@@ -13,7 +13,7 @@
       </el-form-item>
       <el-form-item label="密码" prop="password">
         <!-- @keyup.enter.native="onLogin" 绑定登陆按钮 回车自动登录  -->
-        <el-input v-model="user.password" @keyup.enter.native="onLogin"></el-input>
+        <el-input v-model="user.password" @keyup.enter.native="onLogin" type="password"></el-input>
       </el-form-item>
       <el-form-item>
         <el-checkbox v-model="user.checked">记住密码</el-checkbox>
@@ -22,7 +22,7 @@
         <el-button type="primary" plain @click="onLogin" icon="el-icon-edit">登录</el-button>
       </el-form-item>
       <el-form-item>
-        <p>{{message}}</p>
+       <el-button type="primary" plain @click="onRegister" icon='el-icon-edit'>注册</el-button>
       </el-form-item>
     </el-form>
   </div>
@@ -63,9 +63,10 @@ export default {
       }
     };
   },
-  created() {
-    this.message = this.$route.params.message;
-  },
+  // created() {
+  //   this.message = this.$route.params.message;
+  //   console.log("this.message>>>",this.message);
+  // },
 
   // 页面加载调用获取Cookie值
   mounted() {
@@ -131,7 +132,11 @@ export default {
         }
       });
     },
-    onRegister() {}
+    // 注册
+    onRegister() {
+      this.$router.push({path:'/Register'});
+      console.log("登录》》》》》》》》》》》》》》》》》》》");
+    }
   }
 };
 </script>
